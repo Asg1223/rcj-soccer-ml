@@ -1,5 +1,6 @@
 # ===== 公開しないもの（チーム用リポジトリに置く） =====
 data/real/
+data/practice/
 data/ir/
 data/camera/
 models/

@@ -30,6 +30,7 @@ MAX_BYTES = 1_000_000  # 1 MB
 # 1. このパターンに当てはまるファイルは公開リポジトリに置かない
 FORBIDDEN = [
     "data/real/*",
+    "data/practice/*",
     "data/ir/*",
     "data/camera/*",
     "models/*",
