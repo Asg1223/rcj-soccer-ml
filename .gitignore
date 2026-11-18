@@ -13,6 +13,15 @@ configs/team/
 *.espdl
 *.eim
 
+# 学習済みモデルを書き出したヘッダ（4-1, 4-4）
+ballnet_model.h
+ballnet_tflite.h
+fomo_tflite.h
+firmware/**/rcjml_mlp.h
+firmware/**/rcjml_packet.h
+!firmware/common/rcjml_mlp.h
+!firmware/common/rcjml_packet.h
+
 # 自チームの「公開しない言葉」リスト（tools/check_public.py が読む）
 .private-words
 

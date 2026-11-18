@@ -37,6 +37,56 @@ NOTEBOOKS = {
             "part2-ml-basics/scikit-learn.md",
         ],
     },
+    "03_neural_net.ipynb": {
+        "title": "第3部 ニューラルネット：距離と保持",
+        "pages": [
+            "part3-neural-net/neurons.md",
+            "part3-neural-net/keras-mlp.md",
+            "part3-neural-net/overfitting.md",
+            "part3-neural-net/classification.md",
+            "part3-neural-net/augmentation.md",
+        ],
+    },
+    "04_on_device.ipynb": {
+        "title": "第4部 マイコンに載せる",
+        "pages": [
+            "part4-on-device/export-c.md",
+            "part4-on-device/measure.md",
+            "part4-on-device/quantization.md",
+            "part4-on-device/tflite-micro.md",
+        ],
+    },
+    "05_two_boards.ipynb": {
+        "title": "第5部 2台をつなぐ",
+        "pages": [
+            "part5-two-boards/packet.md",
+            "part5-two-boards/display.md",
+            "part5-two-boards/control.md",
+        ],
+    },
+    "06_camera.ipynb": {
+        "title": "第6部 カメラ認識",
+        "pages": [
+            "part6-camera/pixels.md",
+            "part6-camera/hsv-baseline.md",
+            "part6-camera/collect-images.md",
+            "part6-camera/labeling.md",
+            "part6-camera/cnn.md",
+            "part6-camera/detection.md",
+            "part6-camera/speed.md",
+            "part6-camera/robots.md",
+            "part6-camera/fusion.md",
+        ],
+    },
+    "07_advanced.ipynb": {
+        "title": "第7部 発展",
+        "pages": [
+            "part7-advanced/calibration.md",
+            "part7-advanced/no-ball.md",
+            "part7-advanced/imitation.md",
+            "part7-advanced/tracking.md",
+        ],
+    },
 }
 
 SETUP = '''# Colab のときだけ、教材リポジトリを取ってきて読み込めるようにする

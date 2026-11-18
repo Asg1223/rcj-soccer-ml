@@ -42,6 +42,9 @@ FORBIDDEN = [
     "*.onnx",
     "*.espdl",
     "*.eim",
+    "*ballnet_model.h",
+    "*ballnet_tflite.h",
+    "*fomo_tflite.h",
 ]
 
 # 2. 画像と CSV はここにだけ置いてよい

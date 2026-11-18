@@ -322,6 +322,7 @@ def make_dataset(
     robot_seed: int = 0,
     distance_range: tuple[float, float] = (3.0, 180.0),
     hold_fraction: float = 0.08,
+    venue: Session | None = None,
 ) -> pd.DataFrame:
     """ボールをランダムな位置に置いたデータを n 個作る。sessions 回に分けて「取り直す」。
 
@@ -331,6 +332,8 @@ def make_dataset(
         distance_cm  ボールまでの距離
         has_ball     ボールを保持しているか（0/1）
         session      何回目の取り直しか（学習用とテスト用を分けるときに使う）
+    venue を渡すと、取り直しの条件（外乱光・ボールの明るさ）を毎回ランダムに選ばず、
+    その会場の条件の近くにする（7-1 の会場キャリブレーション）。
         reflection, occluded, stray  反射・遮へい・ボール以外の赤外線が起きたか
                      （答え合わせ用。モデルの入力には使わない）
     """
@@ -339,7 +342,12 @@ def make_dataset(
     per[: n % sessions] += 1
     frames = []
     for sid, k in enumerate(per):
-        sess = sample_session(difficulty, rng)
+        sess = sample_session(difficulty, rng) if venue is None else Session(
+            ambient=venue.ambient * rng.uniform(0.9, 1.1),
+            ambient_dir_deg=venue.ambient_dir_deg + rng.normal(0.0, 8.0),
+            ambient_dir=venue.ambient_dir * rng.uniform(0.9, 1.1),
+            ball_scale=venue.ball_scale * rng.uniform(0.97, 1.03),
+        )
         # 距離は近いほうを多めに（ボールを追いかけている時間が長いので）
         u = rng.random(k)
         lo, hi = distance_range
@@ -382,3 +390,36 @@ def baseline_angle(cfg: RobotConfig, readings) -> np.ndarray:
 def angle_error_deg(pred, true) -> np.ndarray:
     """角度の誤差（359° と 1° の差は 2°、と数える）。"""
     return np.abs(_wrap(np.asarray(pred) - np.asarray(true)))
+
+
+def make_no_ball(
+    cfg: RobotConfig,
+    n: int = 500,
+    *,
+    difficulty="normal",
+    sessions: int = 5,
+    seed: int = 0,
+    robot_seed: int = 0,
+) -> pd.DataFrame:
+    """ボールが見えないとき（コートの外、相手ロボットの真後ろなど）のデータを作る（7-2）。
+
+    センサに入るのは、外乱光とボール以外の赤外線だけになる。
+    angle_deg・distance_cm は意味がないので NaN、visible = 0 にする。
+    """
+    rng = np.random.default_rng(seed + 50_000)
+    per = np.full(sessions, n // sessions)
+    per[: n % sessions] += 1
+    frames = []
+    for sid, k in enumerate(per):
+        sess = sample_session(difficulty, rng)
+        angle = rng.uniform(-180.0, 180.0, k)
+        x = simulate(cfg, angle, np.full(k, 1.0e4), difficulty=difficulty, robot_seed=robot_seed,
+                     session=sess, rng=rng)
+        df = pd.DataFrame(x, columns=[f"s{i}" for i in range(cfg.ir.sensor_count)])
+        df["angle_deg"] = np.nan
+        df["distance_cm"] = np.nan
+        df["has_ball"] = 0
+        df["visible"] = 0
+        df["session"] = sid
+        frames.append(df)
+    return pd.concat(frames, ignore_index=True)

@@ -1,6 +1,31 @@
-"""RCJ Soccer 機械学習入門 の教材用 Python パッケージ。"""
+from rcjml.sim.ir_ring import (
+    BALL_MODELS,
+    DIFFICULTIES,
+    NOMINAL_SESSION,
+    Session,
+    angle_error_deg,
+    baseline_angle,
+    make_dataset,
+    make_no_ball,
+    robot_traits,
+    sample_session,
+    sensor_gains,
+    sensor_offsets,
+    simulate,
+)
 
-from rcjml.config import RobotConfig, describe, example_config, load_config
-
-__version__ = "0.1.0"
-__all__ = ["RobotConfig", "describe", "example_config", "load_config", "__version__"]
+__all__ = [
+    "BALL_MODELS",
+    "DIFFICULTIES",
+    "NOMINAL_SESSION",
+    "Session",
+    "angle_error_deg",
+    "baseline_angle",
+    "make_dataset",
+    "make_no_ball",
+    "robot_traits",
+    "sample_session",
+    "sensor_gains",
+    "sensor_offsets",
+    "simulate",
+]
