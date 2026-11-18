@@ -1,0 +1,29 @@
+# 教材用の設定ファイルの例（IR センサ 12 個・等間隔）
+# これは例です。特定のチームの機体の値ではありません。
+# 自分の機体の設定は、チーム用（非公開）リポジトリの configs/robot.yaml に書きます。
+
+name: example-ring12
+
+ir:
+  sensor_count: 12
+  # センサを並べた角度（正面 = 0°、反時計回りが +）。省略すると等間隔になる
+  angles_deg: null
+  # センサ値の上限（読み方によって変わる。例: analogRead なら 1023）
+  max_reading: 1023
+
+ball:
+  # large_ir: 大型の IR ボール / golf_ir: ゴルフボールサイズの IR ボール
+  type: large_ir
+
+board:
+  # IR センサを読むマイコン: arduino / esp32
+  sensor_mcu: arduino
+
+serial:
+  # 例: Windows なら COM3、Mac なら /dev/cu.usbmodem1101。null なら自動で探す（第1部）
+  port: null
+  baud: 115200
+
+data:
+  # データを置くフォルダ（この設定ファイルがあるフォルダから数える）
+  dir: ../../data/ir-synthetic

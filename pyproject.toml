@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rcjml"
+version = "0.1.0"
+description = "RCJ Soccer 機械学習入門 の教材用パッケージ（設定ファイル、IR シミュレータ など）"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "pandas",
+  "matplotlib",
+  "pyyaml",
+]
+
+[project.optional-dependencies]
+# 実機とシリアル通信するとき
+serial = ["pyserial"]
+# 第2部以降
+ml = ["scikit-learn"]
+
+[tool.setuptools.packages.find]
+include = ["rcjml*"]

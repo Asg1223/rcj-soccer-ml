@@ -1,0 +1,30 @@
+# ===== 公開しないもの（チーム用リポジトリに置く） =====
+data/real/
+data/ir/
+data/camera/
+models/
+configs/robot*.yaml
+configs/team/
+*.tflite
+*.h5
+*.keras
+*.onnx
+*.espdl
+*.eim
+
+# 自チームの「公開しない言葉」リスト（tools/check_public.py が読む）
+.private-words
+
+# ===== ビルド・環境 =====
+site/
+.cache/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+.vscode/
+build/

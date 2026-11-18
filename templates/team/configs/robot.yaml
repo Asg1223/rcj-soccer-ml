@@ -1,0 +1,23 @@
+# 自チームの機体の設定（非公開）
+# このファイルはチーム用（非公開）リポジトリにだけ置く。公開リポジトリにコピーしない。
+# 書き方は教材の 0-4 を参照。
+
+name: my-robot
+
+ir:
+  sensor_count: 12        # TODO: 自分の機体のセンサの個数
+  angles_deg: null        # TODO: 等間隔でなければ、正面 0°・反時計回り + で並べた角度のリスト
+  max_reading: 1023       # TODO: センサ値の上限
+
+ball:
+  type: large_ir          # TODO: large_ir / golf_ir
+
+board:
+  sensor_mcu: arduino     # TODO: arduino / esp32
+
+serial:
+  port: null              # TODO: 例 COM3、/dev/cu.usbmodem1101
+  baud: 115200
+
+data:
+  dir: ../data/ir         # このファイルから見た、IR データの置き場所

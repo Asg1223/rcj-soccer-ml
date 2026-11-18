@@ -1,0 +1,122 @@
+[project]
+site_url = "https://asg1223.github.io/rcj-soccer-ml/"
+site_name = "RCJ Soccer 機械学習入門"
+site_description = "ロボカップジュニア サッカー（赤外線）で使う機械学習を、手を動かして身につける教材"
+site_author = "Asg1223"
+copyright = "Copyright &copy; 2026 Asg1223"
+
+repo_url = "https://github.com/Asg1223/rcj-soccer-ml"
+repo_name = "Asg1223/rcj-soccer-ml"
+edit_uri = "edit/main/docs/"
+
+nav = [
+  { "はじめに" = "index.md" },
+  { "第0部 準備" = [
+    "part0-setup/index.md",
+    { "0-1 この教材の使い方" = "part0-setup/how-to-use.md" },
+    { "0-2 環境構築" = "part0-setup/environment.md" },
+    { "0-3 GitHub とチーム用リポジトリ" = "part0-setup/github.md" },
+    { "0-4 設定ファイル" = "part0-setup/config.md" },
+  ] },
+  { "第1部 IR データを集める" = "part1-ir-data/index.md" },
+  { "第2部 機械学習の基本" = "part2-ml-basics/index.md" },
+  { "第3部 ニューラルネット" = "part3-neural-net/index.md" },
+  { "第4部 マイコンに載せる" = "part4-on-device/index.md" },
+  { "第5部 2台をつなぐ" = "part5-two-boards/index.md" },
+  { "第6部 カメラ認識" = "part6-camera/index.md" },
+  { "第7部 発展" = "part7-advanced/index.md" },
+]
+
+extra_css = [
+  "stylesheets/extra.css",
+  "https://unpkg.com/katex@0/dist/katex.min.css",
+]
+extra_javascript = [
+  "javascripts/katex.js",
+  "https://unpkg.com/katex@0/dist/katex.min.js",
+  "https://unpkg.com/katex@0/dist/contrib/auto-render.min.js",
+]
+
+[project.theme]
+language = "ja"
+features = [
+  "announce.dismiss",
+  "content.action.edit",
+  "content.code.annotate",
+  "content.code.copy",
+  "content.code.select",
+  "content.footnote.tooltips",
+  "content.tabs.link",
+  "content.tooltips",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.instant.prefetch",
+  "navigation.path",
+  "navigation.sections",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+]
+
+[project.theme.icon]
+logo = "lucide/radar"
+
+[project.theme.font]
+text = "BIZ UDPGothic"
+code = "JetBrains Mono"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "ライトモードにする"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "deep orange"
+accent = "indigo"
+toggle.icon = "lucide/sun"
+toggle.name = "ダークモードにする"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "deep orange"
+accent = "indigo"
+toggle.icon = "lucide/moon"
+toggle.name = "システム設定に合わせる"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/Asg1223/rcj-soccer-ml"
+
+[project.markdown_extensions]
+abbr = {}
+admonition = {}
+attr_list = {}
+def_list = {}
+footnotes = {}
+md_in_html = {}
+toc.permalink = true
+pymdownx.arithmatex.generic = true
+pymdownx.betterem = {}
+pymdownx.caret = {}
+pymdownx.details = {}
+pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
+pymdownx.emoji.emoji_index = "zensical.extensions.emoji.twemoji"
+pymdownx.highlight.anchor_linenums = true
+pymdownx.highlight.line_spans = "__span"
+pymdownx.highlight.pygments_lang_class = true
+pymdownx.inlinehilite = {}
+pymdownx.keys = {}
+pymdownx.magiclink = {}
+pymdownx.mark = {}
+pymdownx.smartsymbols = {}
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
+pymdownx.tabbed.alternate_style = true
+pymdownx.tabbed.combine_header_slug = true
+pymdownx.tasklist.custom_checkbox = true
+pymdownx.tilde = {}

@@ -1,0 +1,17 @@
+# コミットの直前に自動でチェックする設定
+# 有効にする: pip install pre-commit && pre-commit install
+repos:
+  # ノートブックの出力（グラフ・表）を消してからコミットする
+  - repo: https://github.com/kynan/nbstripout
+    rev: 0.9.2
+    hooks:
+      - id: nbstripout
+
+  # 公開してはいけないものが混ざっていないか調べる
+  - repo: local
+    hooks:
+      - id: check-public
+        name: 公開してはいけないものが混ざっていないか
+        entry: python tools/check_public.py
+        language: system
+        pass_filenames: true

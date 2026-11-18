@@ -1,0 +1,13 @@
+# ローカル環境で教材を進めるためのパッケージ（第0部〜第2部）
+# 使い方: pip install -r requirements.txt
+-e .
+numpy
+pandas
+matplotlib
+pyyaml
+pyserial
+scikit-learn
+jupyterlab
+pre-commit
+nbstripout
+# 第3部以降で tensorflow、第6部で opencv-python を追加する（その章で説明）
