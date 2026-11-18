@@ -38,3 +38,5 @@ df = make_dataset(cfg, n=6000, difficulty="normal", sessions=12)
 
 !!! tip "実機がない人は"
     1-2 と 1-4 の実機の手順は読むだけにして、1-1・1-3・1-5 のシミュレータの手順を進めれば、第2部に進めます。
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Asg1223/rcj-soccer-ml/blob/main/notebooks/01_ir_data.ipynb)

@@ -14,3 +14,5 @@
 !!! tip "急いでいる人へ"
     とりあえず触ってみたいだけなら、0-2 の **Colab** の手順だけやれば第2部まで進めます。
     実機を使い始めるときに、残りを戻ってやりましょう。
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Asg1223/rcj-soccer-ml/blob/main/notebooks/00_check_environment.ipynb)
