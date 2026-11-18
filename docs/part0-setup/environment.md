@@ -89,6 +89,8 @@ flowchart LR
     .venv\Scripts\Activate.ps1
     python -m pip install --upgrade pip
     pip install -r requirements.txt
+    pip install -e .
+    python --version
     ```
 
 === "Mac"
@@ -101,9 +103,27 @@ flowchart LR
     source .venv/bin/activate
     python -m pip install --upgrade pip
     pip install -r requirements.txt
+    pip install -e .
+    python --version
     ```
 
-行の先頭に `(.venv)` と出ていれば、仮想環境に入っています。
+行の先頭に `(.venv)` と出ていて、最後の `python --version` が **3.12.x** なら成功です。
+`pip install -e .` は、教材用パッケージ `rcjml` を「このフォルダのコードをそのまま使う」形で入れるコマンドです。
+
+!!! warning "VS Code の「環境の作成」を使うときは Python の版を選ぶ"
+    VS Code のボタンから仮想環境を作ると、PC に入っているいちばん新しい Python（3.14 など）が自動で選ばれることがあります。
+    作るときに **3.12** を選び直すか、上のコマンドで作ってから VS Code で `.venv` を選んでください。
+
+!!! tip "uv を使う場合"
+    [uv](https://docs.astral.sh/uv/) が入っていれば、Python 3.12 を別に入れなくても、次の方法で 3.12 の仮想環境を作れます（Windows / Mac 共通。Mac は2行目を `source .venv/bin/activate` にする）。
+
+    ```powershell
+    uv venv --python 3.12 .venv
+    .venv\Scripts\Activate.ps1
+    uv pip install -r requirements.txt
+    uv pip install -e .
+    python --version
+    ```
 
 ### 4. ノートブックを動かす
 
@@ -176,6 +196,27 @@ Arduino Uno などは、最初から入っている「Arduino AVR Boards」で�
 ??? failure "`py` や `python3.12` が見つからない"
     - Windows：Python のインストーラで「Add python.exe to PATH」にチェックを入れ忘れたかもしれません。インストーラをもう一度起動して「Modify」から直すか、入れ直します
     - Mac：ターミナルを一度閉じて開き直してから、もう一度試します
+
+??? failure "`does not appear to be a Python project` と出る"
+    `pip install -e .` や `pip install -r requirements.txt` を、**リポジトリのフォルダ以外** で実行しています（`.` は「今いるフォルダ」の意味です）。
+    `cd rcj-soccer-ml` でフォルダに入ってから、もう一度実行します。
+
+??? failure "仮想環境の Python が 3.12 ではなかった"
+    作り直すのがいちばん早いです。リポジトリのフォルダで `.venv` フォルダを消してから、上の手順で 3.12 を指定して作り直します。
+
+    ```powershell
+    Remove-Item -Recurse -Force .venv   # Mac は rm -rf .venv
+    ```
+
+    Windows で `py -3.12` が「見つからない」と言われるときは、python.org の 3.12 を入れるか、上の「uv を使う場合」の手順を使います。
+
+??? failure "`import serial` しても `serial.Serial` がないと言われる"
+    `pyserial`（シリアル通信のライブラリ）とは別の、`serial` という名前のパッケージが入っていると、こうなります。
+
+    ```bash
+    pip uninstall serial
+    pip install --force-reinstall pyserial
+    ```
 
 ??? failure "Windows で `Activate.ps1` が「スクリプトの実行が無効」と言われる"
     PowerShell で次のコマンドを1回だけ実行してから、もう一度 `Activate.ps1` を実行します。

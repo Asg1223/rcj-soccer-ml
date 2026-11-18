@@ -1,6 +1,9 @@
 # ローカル環境で教材を進めるためのパッケージ（第0部〜第2部）
-# 使い方: pip install -r requirements.txt
--e .
+# 使い方（リポジトリのフォルダで実行）:
+#   pip install -r requirements.txt
+#   pip install -e .
+# 教材用パッケージ rcjml（pip install -e .）はここに書かない。
+# ここに「-e .」と書くと、pip を実行した場所によっては別のフォルダを指してしまうため。
 numpy
 pandas
 matplotlib
