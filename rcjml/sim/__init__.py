@@ -1,8 +1,13 @@
 from rcjml.sim.ir_ring import (
     BALL_MODELS,
+    DIFFICULTIES,
+    NOMINAL_SESSION,
+    Session,
     angle_error_deg,
     baseline_angle,
     make_dataset,
+    robot_traits,
+    sample_session,
     sensor_gains,
     sensor_offsets,
     simulate,
@@ -10,9 +15,14 @@ from rcjml.sim.ir_ring import (
 
 __all__ = [
     "BALL_MODELS",
+    "DIFFICULTIES",
+    "NOMINAL_SESSION",
+    "Session",
     "angle_error_deg",
     "baseline_angle",
     "make_dataset",
+    "robot_traits",
+    "sample_session",
     "sensor_gains",
     "sensor_offsets",
     "simulate",

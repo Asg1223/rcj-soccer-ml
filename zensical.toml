@@ -3,7 +3,7 @@ site_url = "https://asg1223.github.io/rcj-soccer-ml/"
 site_name = "RCJ Soccer 機械学習入門"
 site_description = "ロボカップジュニア サッカー（赤外線）で使う機械学習を、手を動かして身につける教材"
 site_author = "Asg1223"
-copyright = "Copyright &copy; 2026 Asg1223"
+copyright = "Copyright &copy; 2026 Asg1223 ・ <a href=\"https://github.com/Asg1223/rcj-soccer-ml/blob/main/LICENSE\">MIT License</a>"
 
 repo_url = "https://github.com/Asg1223/rcj-soccer-ml"
 repo_name = "Asg1223/rcj-soccer-ml"

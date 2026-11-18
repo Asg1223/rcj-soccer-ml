@@ -130,7 +130,8 @@ from rcjml.sim import simulate
 fig, axes = plt.subplots(1, 3, figsize=(12, 4), subplot_kw={"projection": "polar"})
 for ax, n in zip(axes, [8, 12, 16]):
     cfg = load_config(example_config(n))
-    values = simulate(cfg, angle_deg=45, distance_cm=40, rng=np.random.default_rng(0))[0]
+    values = simulate(cfg, angle_deg=45, distance_cm=40, difficulty="easy",
+                      rng=np.random.default_rng(0))[0]
     theta = np.deg2rad(cfg.ir.angles_deg)
     ax.set_theta_zero_location("N")
     ax.bar(theta, values, width=2 * np.pi / n * 0.8, alpha=0.7)
