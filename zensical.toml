@@ -76,6 +76,18 @@ nav = [
     { "7-3 模倣学習" = "part7-advanced/imitation.md" },
     { "7-4 追跡と自己位置" = "part7-advanced/tracking.md" },
   ] },
+  { "ハンズオン" = [
+    "handson/index.md",
+    { "H1 動作確認" = "handson/h1-check.md" },
+    { "H2 IR データを集める" = "handson/h2-collect.md" },
+    { "H3 自分のデータで学習" = "handson/h3-train.md" },
+    { "H4 マイコンで推論" = "handson/h4-on-device.md" },
+    { "H5 2台をつなぐ" = "handson/h5-link.md" },
+    { "H6 ボールを追いかける" = "handson/h6-chase.md" },
+    { "H7 画像を集める" = "handson/h7-images.md" },
+    { "H8 カメラで見つける" = "handson/h8-detect.md" },
+    { "H9 仕上げ" = "handson/h9-finish.md" },
+  ] },
 ]
 
 extra_css = [
